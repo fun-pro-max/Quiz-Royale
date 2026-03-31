@@ -8,7 +8,7 @@
     --neon-glow: 0 0 15px rgba(118, 204, 19, 0.6);
 }
 
-/* Base Resets */
+/* --- Base Resets --- */
 * { 
     box-sizing: border-box; 
     margin: 0; 
@@ -22,18 +22,17 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* dynamic viewport height fixes mobile browser bar issues */
     min-height: 100vh;
     min-height: 100dvh; 
     overflow: hidden;
 }
 
-/* Main App Container - FULL SCREEN MOBILE FIX */
+/* --- Main App Container --- */
 .app-container {
     width: 100vw;
     height: 100vh;
     height: 100dvh;
-    max-width: 500px; /* Limits width on Laptop for better visuals */
+    max-width: 500px; 
     
     /* Starry Background Image inside the app */
     background: linear-gradient(rgba(15, 23, 26, 0.7), rgba(15, 23, 26, 0.7)), 
@@ -48,13 +47,13 @@ body {
 /* Laptop Mode Tweaks */
 @media (min-width: 768px) {
     .app-container {
-        height: 92vh;
+        height: 94vh;
         border-radius: 20px;
         border: 2px solid #2c3e46;
     }
 }
 
-/* Header bar */
+/* --- Header Navigation --- */
 .top-nav {
     display: flex;
     justify-content: space-between;
@@ -88,7 +87,9 @@ body {
     cursor: pointer; 
 }
 
-/* Screens Layout */
+.close-icon { color: white; font-size: 1.2rem; }
+
+/* --- Content Views Manager --- */
 .main-content {
     flex: 1;
     display: flex;
@@ -102,6 +103,7 @@ body {
     width: 100%;
     height: 100%;
     flex-direction: column;
+    align-items: center;
     padding: 20px;
     text-align: center;
 }
@@ -110,38 +112,29 @@ body {
     display: flex;
 }
 
-/* Home Screen Layout - FINAL FIX FOR OVERLAP */
+/* --- HOME SCREEN ALIGNMENT (Image 1) --- */
 #home-screen {
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important; 
-    align-items: center !important;
-    height: 100%;
-    padding: 20px;
-    gap: 15px; /* Creates physical space between stacked items */
+    justify-content: flex-start; 
+    padding-top: 12vh; /* Positions text in the upper-middle */
 }
 
 .title-brand { 
     font-family: 'Caveat', cursive; 
-    font-size: clamp(3rem, 12vw, 4.5rem); 
+    font-size: clamp(3.5rem, 12vw, 4.5rem); 
     color: white; 
     text-shadow: 2px 2px 15px rgba(0,0,0,0.8);
-    margin: 0; /* Remove all margins */
-    padding: 0;
-    line-height: 1.1;
+    margin: 0;
 }
 
 .high-score-tag { 
     color: #fff; 
     opacity: 0.9; 
     font-weight: 600;
-    margin: 0 0 20px 0; /* Only margin on bottom to push button away */
+    margin-top: 5px;
+    margin-bottom: 8vh; /* Large gap before button */
 }
 
 .big-play-btn {
-    /* REMOVE position: absolute and top: 320px from here */
-    position: relative !important;
-    top: 0 !important; 
     background: var(--btn-grad); 
     padding: 18px 60px; 
     border-radius: 50px;
@@ -153,7 +146,7 @@ body {
     box-shadow: 0 6px 0 #3d6b00, var(--neon-glow);
     transition: transform 0.1s;
     text-transform: uppercase;
-    flex-shrink: 0; /* Prevents button from squishing */
+    position: relative; /* Keeps it in flow, prevents overlap */
 }
 
 .big-play-btn:active { 
@@ -161,33 +154,39 @@ body {
     box-shadow: 0 2px 0 #3d6b00; 
 }
 
-/* Quiz Content Area */
+/* --- GAME SCREEN ALIGNMENT (Image 2) --- */
+#game-screen {
+    justify-content: center; /* Centers the card vertically */
+}
+
 .card-container {
     width: 100%;
-    flex: 1;
+    flex: 0.85; /* Responsive height for the card */
     background: rgba(75, 122, 141, 0.2);
     backdrop-filter: blur(5px);
     border-radius: 15px;
     border: 3px solid #3d555f;
     overflow: hidden;
     position: relative;
-    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
 }
 
 .game-track { display: flex; width: 100%; height: 100%; transition: transform 0.5s ease-in-out; }
-.question-slide { min-width: 100%; padding: 20px; display: flex; flex-direction: column; }
+.question-slide { min-width: 100%; padding: 15px; display: flex; flex-direction: column; }
 
 .brain-img { 
     width: 100%; 
-    height: 150px; 
+    height: 160px; 
     background: url('https://img.freepik.com/free-vector/hand-drawn-brain-concept-illustration_23-2149443123.jpg?w=1380') center/cover; 
     border-radius: 8px; 
+    flex-shrink: 0;
 }
 
 .question-banner { 
     background: rgba(44, 62, 70, 0.95); 
-    padding: 20px; 
-    margin: -35px 10px 15px 10px; 
+    padding: 15px; 
+    margin: -30px 10px 15px 10px; 
     transform: rotate(-2deg); 
     border: 2px solid #5a7d8c; 
     box-shadow: 5px 5px 15px rgba(0,0,0,0.4); 
@@ -201,13 +200,12 @@ body {
     transform: rotate(2deg); 
 }
 
-/* Answer Choices */
 .choice-list { 
     display: flex; 
     flex-direction: column; 
-    gap: 12px; 
-    margin-top: auto;
-    padding-bottom: 10px;
+    gap: 10px; 
+    margin-top: auto; 
+    padding: 0 10px 20px 10px;
 }
 
 .choice-btn { 
@@ -215,32 +213,32 @@ body {
     border: none; 
     border-top: 1px solid #7199a9; 
     border-bottom: 4px solid #152025; 
-    padding: 16px; 
+    padding: 14px; 
     color: white; 
     font-weight: 700; 
-    border-radius: 12px; 
+    border-radius: 10px; 
     cursor: pointer; 
 }
 
 .choice-btn.correct { background: var(--correct) !important; color: #000; }
 .choice-btn.wrong { background: var(--wrong) !important; color: #fff; }
 
-.footer-progress { color: #fff; margin-top: -10px; font-style: italic; padding-bottom: 60px; }
+.footer-progress { color: #fff; margin-top: 15px; font-style: italic; font-weight: bold; }
 
-/* Current Affairs Modal - SOLID UI */
+/* --- SOLID CURRENT AFFAIRS UI --- */
 .modal { 
     display: none; 
     position: absolute; 
     top:0; left:0; 
     width:100%; height:100%; 
-    background: #0f171a; /* Solid Background */
+    background: #0f171a; 
     z-index: 1000; 
 }
 
 .modal-content { 
     width: 100%;
     height: 100%;
-    padding: 40px 20px;
+    padding: 60px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -281,20 +279,19 @@ body {
     width: 100%;
 }
 
-/* Modal Nav Zones */
 .fact-zone { position: absolute; top: 0; bottom: 0; width: 50%; z-index: 1001; cursor: pointer; }
 #fact-nav-left { left: 0; }
 #fact-nav-right { right: 0; }
 
 .close-modal { position: absolute; top: 20px; right: 20px; font-size: 2.5rem; cursor: pointer; color: #fff; z-index: 1002; }
 
-/* FAB Lightbulb */
+/* --- UI Elements --- */
 #fact-fab { 
     position: absolute; 
-    bottom: 30px; 
+    bottom: 25px; 
     right: 20px; 
-    width: 65px; 
-    height: 65px; 
+    width: 60px; 
+    height: 60px; 
     background: #76cc13; 
     border-radius: 50%; 
     border: none; 
@@ -304,7 +301,6 @@ body {
     z-index: 500; 
 }
 
-/* Toast Notification */
 #toast { 
     visibility: hidden; 
     min-width: 150px; 
@@ -316,10 +312,9 @@ body {
     position: fixed; 
     z-index: 2000; 
     bottom: 100px; 
-    font-size: 14px; 
-    border: 1px solid var(--correct); 
     left: 50%; 
     transform: translateX(-50%); 
+    border: 1px solid var(--correct); 
 }
 
 #toast.show { visibility: visible; }

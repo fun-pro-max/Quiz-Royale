@@ -30,26 +30,30 @@
         </header>
 
         <main class="main-content">
-            <div id="home-screen" class="view active">
-                <div class="title-brand">Quiz Royale</div>
-                <div class="high-score-tag">Personal Best: <span id="high-score-val">0</span></div>
-                <!-- Play Now button positioned exactly where requested (middle-low) -->
-                <button id="start-btn" class="big-play-btn">PLAY NOW</button>
-            </div>
+    <!-- Home Screen -->
+    <div id="home-screen" class="view active">
+        <div class="home-text-group">
+            <div class="title-brand">Quiz Royale</div>
+            <div class="high-score-tag">Personal Best: <span id="high-score-val">0</span></div>
+        </div>
+        <button id="start-btn" class="big-play-btn">PLAY NOW</button>
+    </div>
 
-            <div id="game-screen" class="view">
-                <div class="card-container">
-                    <div id="game-track" class="game-track"></div>
-                </div>
-                <div class="footer-progress">· <span id="current-idx">1</span>/10 ·</div>
-            </div>
-
-            <div id="end-screen" class="view">
-                <h1 class="title-brand">Finished!</h1>
-                <div class="final-stats"><p>Score: <span id="final-score">0</span></p></div>
-                <button id="restart-btn" class="big-play-btn" style="position: relative; margin-top: 20px;">TRY AGAIN</button>
-            </div>
-        </main>
+    <!-- Game Screen -->
+    <div id="game-screen" class="view">
+        <div class="card-container">
+            <div id="game-track" class="game-track"></div>
+        </div>
+        <div class="footer-progress">· <span id="current-idx">1</span>/10 ·</div>
+    </div>
+    
+    <!-- End Screen -->
+    <div id="end-screen" class="view">
+        <h1 class="title-brand">Finished!</h1>
+        <div class="final-stats"><p>Score: <span id="final-score">0</span></p></div>
+        <button id="restart-btn" class="big-play-btn">TRY AGAIN</button>
+    </div>
+</main>
 
         <button id="fact-fab">💡</button>
 
