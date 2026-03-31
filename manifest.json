@@ -1,0 +1,16 @@
+{
+  "name": "Quiz Royale",
+  "short_name": "Royale",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#0f171a",
+  "theme_color": "#76cc13",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/3407/3407024.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
