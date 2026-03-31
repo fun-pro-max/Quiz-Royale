@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Royale</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="app-container">
+        <header class="top-nav">
+            <div class="nav-icon" id="dots-icon" style="cursor:pointer; font-weight:bold; font-size:1.5rem;">⋮</div>
+            <div class="score-box" id="global-score">0</div>
+            <button id="start-over" class="nav-btn-green">START OVER</button>
+            <div class="close-icon" id="exit-btn" style="cursor:pointer">✖</div>
+        </header>
+
+        <main class="main-content">
+            <div id="home-screen" class="view active">
+                <div class="title-brand">Quiz Royale</div>
+                <div class="high-score-tag">Personal Best: <span id="high-score-val">0</span></div>
+                <!-- Play Now button positioned exactly where requested (middle-low) -->
+                <button id="start-btn" class="big-play-btn" style="position: absolute; top: 320px;">PLAY NOW</button>
+            </div>
+
+            <div id="game-screen" class="view">
+                <div class="card-container">
+                    <div id="game-track" class="game-track"></div>
+                </div>
+                <div class="footer-progress">· <span id="current-idx">1</span>/10 ·</div>
+            </div>
+
+            <div id="end-screen" class="view">
+                <h1 class="title-brand">Finished!</h1>
+                <div class="final-stats"><p>Score: <span id="final-score">0</span></p></div>
+                <button id="restart-btn" class="big-play-btn" style="position: relative; margin-top: 20px;">TRY AGAIN</button>
+            </div>
+        </main>
+
+        <button id="fact-fab">💡</button>
+
+        <!-- Facts Modal with Screen-Side Navigation -->
+        <!-- Facts Modal with Screen-Side Navigation -->
+        <!-- Facts Modal changed to Current Affairs -->
+<div id="facts-modal" class="modal">
+    <div id="fact-nav-left" class="fact-zone"></div>
+    <div id="fact-nav-right" class="fact-zone"></div>
+
+    <div class="modal-content" style="margin-top: 100px;"> 
+        <span class="close-modal">&times;</span>
+        <div class="modal-header-box">CURRENT AFFAIRS</div>
+        
+        <div class="fact-display-wrapper">
+            <!-- News headline goes here -->
+            <div id="fact-question-box">Fetching latest news...</div>
+            <!-- News source/category goes here -->
+            <div id="fact-answer-box" style="display:none;"></div>
+        </div>
+        <div style="text-align: center; color: var(--correct); font-weight: bold; font-size: 0.8rem;">
+            <span id="fact-count">1/10</span>
+        </div>
+    </div>
+</div>
+    </div>
+
+    <div id="toast">Coming Soon!</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
