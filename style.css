@@ -110,7 +110,6 @@ body {
     display: flex;
 }
 
-/* Home Screen Center Alignment */
 /* Home Screen Layout - FINAL FIX FOR OVERLAP */
 #home-screen {
     display: flex !important;
