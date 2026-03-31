@@ -111,9 +111,13 @@ body {
 }
 
 /* Home Screen Center Alignment */
+/* Home Screen Layout - FIX FOR OVERLAP */
 #home-screen {
-    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers the whole group vertically */
     align-items: center;
+    gap: 20px; /* Forces a 20px space between Title, Score, and Button */
 }
 
 .title-brand { 
@@ -121,14 +125,16 @@ body {
     font-size: clamp(3.5rem, 12vw, 4.5rem); 
     color: white; 
     text-shadow: 2px 2px 15px rgba(0,0,0,0.8);
-    margin-bottom: 10px;
+    /* Removed margin-bottom to let the 'gap' property handle spacing */
+    margin-bottom: 0; 
 }
 
 .high-score-tag { 
     color: #fff; 
-    margin-bottom: 40px; 
     opacity: 0.9; 
     font-weight: 600;
+    /* Added a bit of bottom margin to separate from the button even more */
+    margin-bottom: 20px; 
 }
 
 .big-play-btn {
@@ -143,6 +149,8 @@ body {
     box-shadow: 0 6px 0 #3d6b00, var(--neon-glow);
     transition: transform 0.1s;
     text-transform: uppercase;
+    /* Ensure no absolute positioning is present */
+    position: relative; 
 }
 
 .big-play-btn:active { 
